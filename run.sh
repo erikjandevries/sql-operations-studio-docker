@@ -13,6 +13,12 @@ docker run -d --rm \
     --device /dev/dri \
     --device /dev/snd \
     --volume ${mount_dir}:${mount_dir} \
+    --volume $HOME/.docker-apps/sqlops/.config:/home/johndoe/.config \
+    --volume $HOME/.docker-apps/sqlops/.pki:/home/johndoe/.pki \
+    --volume $HOME/.docker-apps/sqlops/.sqlops:/home/johndoe/.sqlops \
+    --volume $HOME/.docker-apps/sqlops/.sqlsecrets:/home/johndoe/.sqlsecrets \
+    --env USER=$USER \
+    --env UID=$UID \
     ${docker_image_id} $@
 
 echo "Revoking root user access to X display"
