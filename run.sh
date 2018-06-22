@@ -2,9 +2,6 @@
 
 source config.sh
 
-echo "Granting root user access to X display"
-xhost +si:localuser:root
-
 echo "Running Docker image: ${docker_image_id}"
 docker run -d --rm \
     --name ${docker_image_name} \
@@ -20,6 +17,3 @@ docker run -d --rm \
     --env USER=$USER \
     --env UID=$UID \
     ${docker_image_id} $@
-
-echo "Revoking root user access to X display"
-xhost -si:localuser:root
