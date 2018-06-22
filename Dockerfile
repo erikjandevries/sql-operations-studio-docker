@@ -32,7 +32,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN wget -q -O sqlops-linux.deb https://sqlopsbuilds.blob.core.windows.net/release/0.29.3/sqlops-linux-0.29.3.deb
+#RUN wget -q -O sqlops-linux.deb https://sqlopsbuilds.blob.core.windows.net/release/0.30.6/sqlops-linux-0.30.6.deb
+RUN wget -q -O sqlops-linux.deb https://go.microsoft.com/fwlink/?linkid=875607
 RUN dpkg -i ./sqlops-linux.deb
 
 RUN apt-get update && \
